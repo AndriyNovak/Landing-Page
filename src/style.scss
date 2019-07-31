@@ -1,135 +1,147 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+$PTSans: "PTSans";
+$HelveticaNeue: "HelveticaNeue";
+
+@mixin text__size-weight-family-color ($size,$weight,$family,$color){   
+    font-size: $size ;  
+    font-weight: $weight;
+    font-family:$family;
+    color:$color;   
+    
+    vertical-align: baseline;
+  }
+  @mixin flex ($aligin,$justify,$direction,$wrap_nowrap){
+    /* display: -webkit-box;*/
+    /* display: -ms-flexbox;*/
+    /* display: flex;*/
+    -webkit-box-align: $aligin;
+    -ms-flex-align: $aligin;
+    -webkit-align-items: $aligin;
+            align-items: $aligin;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    -webkit-justify-content: $justify;
+            justify-content: $justify;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    -webkit-flex-direction: $direction;
+            flex-direction: $direction;
+    -ms-flex-wrap: $wrap_nowrap;
+    -webkit-flex-wrap: $wrap_nowrap;
+            flex-wrap: $wrap_nowrap;
+  }
 *{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 body{
    background: white;
+   @include flex(center,center,column, nowrap);
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
    display: flex;
-   flex-flow:column nowrap;
-   align-items: center;
-   justify-content: center;
+ 
 }
 .main-wrap{
     max-width: 1924px;
     min-width: 320px;
-   
-  
-    
 }
-/* --------------Header -------------------*/
+/* -----------------------Header ---------------------------------*/
 .header-wrap{
     width: 100%;
     height: auto;
     background-color: rgb(252, 219, 0);
     padding: 0 20px;
-
-    display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
-
-
+    @include flex(center,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;   
     position: relative;
    
 }
 header{
     width: 80%;
     height: auto;  
-    margin: 50px 0 50px 0 ;  
-
+    margin: 50px 0 50px 0 ; 
+    @include flex(center,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
-
-    
+   
 }
 
 header .header__logo{
     width: 50%;
+    @include flex(center,flex-start,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: flex-start;
+    
 }
 header .header__logo .logo{
    margin:0 10px 0 0 ;
 }
 header .header__menu{
     width: 50%;
-    display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: space-between;
+    @include flex(center,space-between,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;   
 }
 
 header .logo-title{
-    font-size: 30px;
-    font-family: "PTSans";
-    color: rgb(1, 1, 1);
-    font-weight: bold;
+    @include text__size-weight-family-color(30px,bold,$PTSans,rgb(1, 1, 1));    
     line-height: 0.667;
      
 }
 .menu-bar{
     margin: 0 0 -5px  0 ;
-
-    display:none;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
+    display:none ;
+    @include flex(center,center,row, nowrap);
+  
 }
 .menu-bar p:hover{
     color: white;
 }
 
-.menu-bar i {    
-        font-size: 29px;
-        font-family: "FontAwesome";
-        color: rgb(0, 0, 0);
+.menu-bar i {  
+    @include text__size-weight-family-color(29px,normal,"FontAwesome",rgb(0, 0, 0));        
         margin: 0;
         display: none;
     
 }
 .menu-bar p{    
-        font-size: 22px;
-        font-family: "HelveticaNeue";
-        color: rgb(1, 1, 1);
-        font-weight: bold;
+    @include text__size-weight-family-color(22px,bold,$HelveticaNeue,rgb(1, 1, 1));        
         line-height: 0.909;
         margin: 0 0 0 10px;
         
 }
 .bar-menu {
-    display:none;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
-
+    display:none ;
+    @include flex(center,center,column, nowrap);   
     background:  rgb(252, 219, 0);
     width: 100%;
     height: auto;
     position: absolute;
-
     margin: 120px 0 0 0 ;
     padding: 10px 0 0 0;
 }
 .bar-menu .bar-item{
     text-decoration: none;
-    font-size: 22px;
-    font-family: "HelveticaNeue";
-    color: rgb(1, 1, 1);
-    font-weight: bold;
+    @include text__size-weight-family-color(22px,bold,$HelveticaNeue,rgb(1, 1, 1));   
     line-height: 0.909;
     text-align: center;
     width: 100%;
-
     padding: 20px;
-
-
-    
 }
 .bar-menu .bar-item:hover{  
     color:white;  
@@ -141,10 +153,7 @@ header .logo-title{
 header .menu-item{  
     display: none;
     text-decoration: none;
-    font-size: 22px;
-    font-family: "HelveticaNeue";
-    color: rgb(1, 1, 1);
-    font-weight: bold;
+    @include text__size-weight-family-color(22px,bold,$HelveticaNeue,rgb(1, 1, 1));   
     line-height: 0.909;
     
 }
@@ -155,66 +164,61 @@ header .menu-item:active{
     color:lightgray;    
 }
 
-/* --------------Slider -------------------*/
+/* -------------------------Slider -------------------------------*/
 .slider-wrap{
     width: 100%;
     height: auto;
     background-color: rgb(252, 219, 0);
     padding: 0 20px 50px 20px;
-
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }
 .slider-wrap .slider-all-content{
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+    
 }
 .slider-wrap .slider{
     width: 80%;
-    height: auto;   
-
+    height: auto; 
+    @include flex(center,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }
 
 .slider .slider__content{
     width: 50%;
+    @include flex(flex-start,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: flex-start;
-    justify-content: center;
+   
 }
 .slider__content .content-title{   
-    font-size: 32px;
-    font-family: "PTSans";
-    color: rgb(1, 1, 1);
-    font-weight: bold;
-    line-height: 1; 
-    
-      
+    @include text__size-weight-family-color(32px,bold,$PTSans,rgb(1, 1, 1));
+   
 }
-.slider__content .content-text-first{    
-    font-size: 20px;
-    font-family: "PTSans";
-    color: rgb(49, 56, 65);
-    line-height: 1.2;        
-    /* width: 309px; */
+.slider__content .content-text-first{ 
+    @include text__size-weight-family-color(20px,normal,$PTSans,rgb(49, 56, 65));  
+    line-height: 1.2;
     width: 80%;
     margin: 20px 0 ;
 
 }
-.slider__content .content-title-second{  
-    font-size: 16px;
-    font-family: "Times New Roman";
-    color: rgb(85, 85, 85);
-    line-height: 1.25;       
-    /*width: 363px;    */
+.slider__content .content-title-second{ 
+    @include text__size-weight-family-color(16px,normal,"Times New Roman",rgb(85, 85, 85)); 
+    line-height: 1.25; 
     width: 80%;
     margin: 0 0 20px  0 ;
 }
@@ -228,56 +232,58 @@ header .menu-item:active{
 .slider__ipad .ipad-base{
     background-color: white;
     padding: 50px 15px 50px 15px;
-    border-radius: 25px;
+    -webkit-border-radius: 25px;
+            border-radius: 25px;
     height: 500px;
     width: 350px;
 }
 .slider__ipad .ipad-display{      
     background-color: black;  
     width: 100%;
-   
+    @include flex(center,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center; 
+   
 }
 .slider__ipad .ipad-display .header__logo{ 
     height: 400px; 
-
+    @include flex(center,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }
 .slider__ipad  .ipad-display .header__logo .logo{
     background-color: rgb(252, 219, 0);
-    border-radius: 50%;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
     padding: 1px;
     margin: 0 10px 0 0;
 }
-.slider__ipad .ipad-display .header__logo .logo-title{    
-    font-size: 30px;
-    font-family: "PTSans";
-    color: rgb(252, 219, 0);
-    font-weight: bold;
+.slider__ipad .ipad-display .header__logo .logo-title{
+    @include text__size-weight-family-color(30px,bold,$PTSans,rgb(252, 219, 0));
     line-height: 0.667;
 }
 
 .slider-wrap  .circle{ 
     margin: 20px 0 0 0 ;
-    
+    @include flex(center,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
-     
+    
 }
 .slider-wrap  .circle .circle__item{
     background-color: rgb(255, 255, 255); 
     opacity: 0.5;
     width: 14px;
     height: 14px;
-    border-radius: 50%;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
     margin: 8px;
 }
 .slider-wrap  .circle .circle__item:hover{
@@ -292,145 +298,132 @@ header .menu-item:active{
     margin: 20px 0;
 }
 .fa {
-    font-size: 42px;
-    font-family: "FontAwesome";
-    color: rgb(1, 1, 1);
+    @include text__size-weight-family-color(42px,normal,"FontAwesome",rgb(1,1,1));   
     line-height: 0.476;
     margin: 0 20px 0 0 ;
     
   }
-/* --------------Features -------------------*/
+/* ------------------------Features ------------------------------------*/
                     
 .features-wrap{
     width: 100%;
     height: auto;
     background-color: white;
     padding: 0 20px 50px 20px;
-
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }   
 .features-wrap .features{
     width: 80%;
     height: auto;  
-    margin: 50px 0 50px 0 ;  
-
+    margin: 50px 0 50px 0 ;
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }
 .features .features__header{
-    /* width: 80%; */
-    display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+    
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;   
     margin: 50px 0;
 }
 .features__header .features-title{ 
-    
-    font-size: 32px;
-    font-family: "PTSans";
-    color: rgb(1, 1, 1);
-    font-weight: bold;
+    @include text__size-weight-family-color(32px,bold,$PTSans,rgb(1,1,1));    
     line-height: 1;
     margin: 10px 0;
         
 }
 .features__header .features-text{   
-   
-    font-size: 20px;
-    font-family: "PTSans";
-    color: rgb(49, 56, 65);
+    @include text__size-weight-family-color(20px,normal,$PTSans,rgb(49, 56, 65));    
     line-height: 1.2;
     text-align: center;  
 }
 .features .features__items-block{
-    /* width: 80%; */
+    @include flex(flex-start,center,row, wrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row wrap;
-    align-items: flex-start;
-    justify-content: center;
+   
 }
 .features__items-block .features__items{
-    display: flex;
-    flex-flow:row nowrap;
-    align-items: flex-start;
-    justify-content: center;
-    
+    @include flex(flex-start,center,row, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;    
     margin: 10px 5px 50px 5px;
 }
 .features__items .item{
-    display: flex;
-    flex-flow:column wrap;
-    align-items: flex-start;
-    justify-content: center;
+    @include flex(flex-start,center,column, wrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;    
     margin: 0 0 0 10px;
 }
 .item .item-title{   
-    font-size: 22px;
-    font-family: "PTSans";
-    color: rgb(1, 1, 1);
+    @include text__size-weight-family-color(22px,normal,$PTSans,rgb(1,1,1));    
     line-height: 1.091;
-       
     margin: 0 0 10px 0;
 }
 .item .item-text{
-  
-    font-size: 16px;
-    font-family: "PTSans";
-    color: rgb(137, 137, 137);
+    @include text__size-weight-family-color(16px,normal,$PTSans,rgb(137, 137, 137));    
     line-height: 1.25;
     width: 206px;
    
        
 }
-/* --------------Subcrible -------------------*/
+/* -------------------------Subcrible ---------------------------------*/
 .subcrible-wrap{
     width: 100%;
     height: auto;
     background-color: black;
     padding: 0 20px 50px 20px;
-
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }
 .subcrible-wrap .subcrible{
     width: 80%;
     height: auto;  
     margin: 50px 0 50px 0 ;  
-
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+    
 }
 .subcrible .subcrible__header{
-   
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+  
 }
 .subcrible__header .title{
-    
-        font-size: 32px;
-        font-family: "PTSans";
-        color: rgb(252, 219, 0);
-        font-weight: bold;
+        @include text__size-weight-family-color(32px,bold,$PTSans,rgb(252, 219, 0));        
         line-height: 1;
        
 }
 .subcrible__header .text{
         text-align: center;
-        font-size: 20px;
-        font-family: "PTSans";
-        color: rgb(137, 137, 137);
+        @include text__size-weight-family-color(20px,normal,$PTSans,rgb(137, 137, 137));       
         line-height: 1.2;
         margin: 20px 0 40px 0;
        
@@ -438,16 +431,18 @@ header .menu-item:active{
 }
 .subcrible__form{
         width: 100%;
-        display: flex;
-        flex-flow:row nowrap;
-        align-items: center;
-        justify-content: center;
+
+        @include flex(center,center,row, nowrap);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;       
 }
 .subcrible__form input{  
-        font-size: 16px;
-        font-family: "PTSans";        
+        @include text__size-weight-family-color(16px,normal,$PTSans,rgb(137, 137, 137));               
         line-height: 1.25;      
-        border-radius: 5px;                        
+        -webkit-border-radius: 5px;      
+                border-radius: 5px;                        
         width: 580px; 
         border: 1px solid black;
         padding: 13px 10px;
@@ -459,49 +454,48 @@ header .menu-item:active{
 }
 .subcrible__form a{
         text-decoration: none;
-        font-size: 16px;
-        font-family: "PTSans";
-        color: rgb(1, 1, 1);
-        font-weight: bold;
+        @include text__size-weight-family-color(16px,bold,$PTSans,rgb(1,1,1));       
         text-transform: uppercase;
         line-height: 1.5;
         text-align: center;
-        border-radius: 4px;
+        -webkit-border-radius: 4px;
+                border-radius: 4px;
         background-color: rgb(252, 219, 0);         
-        width: 130px;
-        /* height: 54px; */
+        width: 130px;       
         padding: 12px 20px;
 }
 .subcrible__form a:hover{
     background: lightblue;
-    border-radius: 5px;
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
     color: green;
 }
 .subcrible__form a:active{
     background: lightslategray;
 }
  
-/* --------------SocialConnect -------------------*/
+/* ----------------------------SocialConnect ---------------------------------*/
 .socialConnect-wrap{
     width: 100%;
     height: auto;
     background-color: black;
     padding: 0 20px 50px 20px;
-
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }    
 .socialConnect-wrap .socialConnect{
     width: 80%;
     height: auto;  
     margin: 0px 0 50px 0 ;  
-
-    display: flex;
-    flex-flow:row wrap;
-    align-items: center;
-    justify-content: center;    
+    @include flex(center,center,row, wrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;    
 }    
 .socialConnect-wrap .socialConnect img{
     margin: 0 10px;   
@@ -509,62 +503,62 @@ header .menu-item:active{
 .socialConnect-wrap .socialConnect img:hover{
     width: 32px;
     height: 32px;
-    transform: rotate(20deg)
+    -webkit-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+            transform: rotate(20deg)
 }            
                 
-/* --------------Footer -------------------*/
+/* -----------------------------Footer ---------------------------------*/
 footer{
     width: 100%;
     height: auto;
     background-color: black;
     padding: 0 20px 50px 20px;
-
+    @include flex(center,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:column nowrap;
-    align-items: center;
-    justify-content: center;
+   
 }
 footer .footer-wrap{
     width: 80%;
     height: auto;  
-    margin: 50px 0 50px 0 ;  
-
+    margin: 50px 0 50px 0 ; 
+    @include flex(flex-start,space-evenly,row, wrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow:row wrap;
-    align-items: flex-start;
-    justify-content: space-evenly; 
+   
 }
 footer .footer-column{
     margin: 20px 10px;
-
-    display: flex;
-    flex-flow:column nowrap;
-    align-items: flex-start;
-    justify-content: center;
+    @include flex(flex-start,center,column, nowrap);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;   
 }
 footer .footer-column a{
     text-decoration: none;
-    font-size: 16px;
-    font-family: "PTSans";
-    color: rgb(255, 255, 255);
+    @include text__size-weight-family-color(16px,normal,$PTSans,rgb(255, 255, 255));   
     line-height: 1.25;     
 
 }
 footer .footer-column a:hover{
    color: blue;
-
 }
 footer .footer-column.contact{  
     width: 150px;     
 }
 footer .footer-column.contact p{
-    font-size: 16px;
-    font-family: "PTSans";
-    color: rgb(255, 255, 255);
+    @include text__size-weight-family-color(16px,normal,$PTSans,rgb(255, 255, 255));   
     line-height: 1.25;    
 }
  
-/* --------------Medis Request -------------------*/
+/* ---------------------------Medis Request -------------------*/
+
 @media screen and (min-width:1300px ) and ( max-width:1924px){
     header,
     .slider-wrap .slider,
@@ -596,10 +590,11 @@ footer .footer-column.contact p{
         min-width: 310px;
     }
     .subcrible__form{
+        @include flex(center,center,column, nowrap);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        flex-flow:column nowrap;
-        align-items: center;
-        justify-content: center;
     }
     
    
@@ -608,10 +603,16 @@ footer .footer-column.contact p{
 @media screen and (max-width:800px ){
    
     .header__menu .menu-bar{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
     }
     header .header__menu{ 
-        justify-content: flex-end;
+        -webkit-box-pack: end; 
+        -webkit-justify-content: flex-end; 
+            -ms-flex-pack: end; 
+                justify-content: flex-end;
     }
     .header-wrap {
         position: fixed;        
