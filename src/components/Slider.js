@@ -21,7 +21,7 @@ export class Slider extends React.Component {
                             <div className="ipad-base">
                                 <div className="ipad-display">
                                     <div className="header__logo">
-                                        <img className="logo" src="img/fingerprint.png" alt="logo"></img>
+                                        <img className="logo" src="/src/img/fingerprint.png" alt="logo"></img>
                                         <div className="logo-title">tinyone</div>   
                                     </div>
                                 </div>      

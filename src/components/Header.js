@@ -24,7 +24,7 @@ export class Header extends React.Component {
             <div className="header-wrap">
                 <header>                
                     <div className="header__logo">
-                        <img className="logo" src="img/fingerprint.png" alt="logo"></img>
+                        <img className="logo" src="/src/img/fingerprint.png" alt="logo"></img>
                         <div className="logo-title">tinyone</div>   
                     </div>
                     <div className="header__menu" >                    
@@ -32,7 +32,7 @@ export class Header extends React.Component {
                         <a href="#" className="menu-item">Support</a>
                         <a href="#" className="menu-item">Blog</a>
                         <div className="menu-bar" onClick={()=>{this.handlerClickBar()}}>                        
-                            <img src="img/menu-icon.png" style={this.state.bar===true?{display:"none"}:{display:"block"}}></img>
+                            <img src="/src/img/menu-icon.png" style={this.state.bar===true?{display:"none"}:{display:"block"}}></img>
                             <i className="fa fa-times" aria-hidden="true" style={this.state.bar===false?{display:"none"}:{display:"block"}}></i>
                             <p>Menu</p>
                         </div>                        

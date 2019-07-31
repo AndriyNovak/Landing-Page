@@ -15,9 +15,15 @@ export class Subcrible extends React.Component {
     handlerSubmit(event){
         event.preventDefault();
         if(this.state.inpValue===""){
-            event.preventDefault();
-            alert("Поле должно быть заполненым!!!")
+            
+            alert("Поле повинно бути заповненим!!!")
+        }else
+        if(this.state.inpValue.indexOf("@")===-1){           
+            alert("Адреса електронної пошти повинна містити символ '@'")
+        }else {
+            alert("Лист успішно відправлено!!!")
         }
+        
         this.setState({
             inpValue:""
         })
